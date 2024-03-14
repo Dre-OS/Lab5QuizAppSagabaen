@@ -103,9 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +128,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Orange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\silver-trash-can-png1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\silver-trash-can-png11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\silver-trash-can-png12.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
