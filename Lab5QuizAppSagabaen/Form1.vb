@@ -77,20 +77,21 @@ Public Class Form1
     End Sub
 
     Private Sub pbx_Question_DragDrop(sender As Object, e As DragEventArgs) Handles pbx_Question3.DragDrop, pbx_Question2.DragDrop, pbx_Question1.DragDrop
-        'If Not Answer Then
-        '    Return
-        'End If
         Dim Pic As PictureBox = sender
-        If Swap Then
-            Dim CurrTemp As PictureBox = currentDrag
-            Pic.Image = CurrTemp.Image
-            currentDrag.Image = Temp.Image
-            'Temp.Image = Pic.Image
-            Swap = False
+        If Not Answer Then
             Return
         Else
             currentDrag.Image = Nothing
         End If
+
+        'If Swap Then
+        '    Dim CurrTemp As PictureBox = currentDrag
+        '    Pic.Image = CurrTemp.Image
+        '    currentDrag.Image = Temp.Image
+        '    'Temp.Image = Pic.Image
+        '    Swap = False
+        '    Return
+
         Pic.Image = e.Data.GetData(DataFormats.Bitmap)
     End Sub
 
@@ -112,19 +113,22 @@ Public Class Form1
     End Sub
 
     Private Sub pbx_Trash_DragDrop(sender As Object, e As DragEventArgs) Handles pbx_Trash.DragDrop
+        For i = 0 To AnswerPictureBoxes.Length - 1
+            If Fruits(i).Image.Equals(currentDrag.Image) Then
+                AnswerPictureBoxes(i).Image = currentDrag.Image
+            End If
+        Next
         If Not Answer Then
             currentDrag.Image = Nothing
         End If
     End Sub
 
     Private Sub pbx_All_DragEnter(sender As Object, e As DragEventArgs) Handles pbx_Trash.DragEnter, pbx_Answer3.DragEnter, pbx_Answer2.DragEnter, pbx_Answer1.DragEnter
-
         If e.Data.GetDataPresent(DataFormats.Bitmap) Then
             e.Effect = DragDropEffects.Move
         Else
             e.Effect = DragDropEffects.None
         End If
-
     End Sub
 
     Private Sub pbx_Trash_Click(sender As Object, e As EventArgs) Handles pbx_Trash.Click
@@ -141,25 +145,36 @@ Public Class Form1
 
     Private Sub pbx_Trash_MouseEnter(sender As Object, e As EventArgs) Handles pbx_Trash.MouseEnter
         lbl_Reset.Visible = True
+        lbl_Trash.Visible = False
     End Sub
 
     Private Sub pbx_Trash_MouseLeave(sender As Object, e As EventArgs) Handles pbx_Trash.MouseLeave
         lbl_Reset.Visible = False
+        lbl_Trash.Visible = True
     End Sub
 
     Private Sub pbx_Question_DragEnter(sender As Object, e As DragEventArgs) Handles pbx_Question3.DragEnter, pbx_Question2.DragEnter, pbx_Question1.DragEnter
         Dim Pic As PictureBox = sender
-        If e.Data.GetDataPresent(DataFormats.Bitmap) Then
-            e.Effect = DragDropEffects.Move
-        Else
-            e.Effect = DragDropEffects.None
+        If Answer Then
+            If e.Data.GetDataPresent(DataFormats.Bitmap) Then
+                e.Effect = DragDropEffects.Move
+            Else
+                e.Effect = DragDropEffects.None
+            End If
         End If
     End Sub
 
-    Private Sub pbx_Questions_DragOver(sender As Object, e As DragEventArgs) Handles pbx_Question3.DragOver, pbx_Question2.DragOver, pbx_Question1.DragOver
+    Private Sub pbx_Questions_DragOver(sender As Object, e As DragEventArgs) Handles pbx_Question3.DragOver, pbx_Question1.DragOver, pbx_Question2.DragOver
         Dim Pic As PictureBox = sender
         If Swap Then
             Temp = Pic
         End If
+    End Sub
+
+    Public Sub Swapping(ByRef PicOne As PictureBox, ByRef PicTwo As PictureBox)
+        Dim PicTemp As PictureBox
+        PicTemp = PicOne
+        PicTwo = PicOne
+        PicOne = PicTemp
     End Sub
 End Class

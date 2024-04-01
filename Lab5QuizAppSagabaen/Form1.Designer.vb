@@ -38,6 +38,7 @@ Partial Class Form1
         Me.pbx_Answer3 = New System.Windows.Forms.PictureBox()
         Me.pbx_Answer1 = New System.Windows.Forms.PictureBox()
         Me.pbx_Answer2 = New System.Windows.Forms.PictureBox()
+        Me.lbl_Trash = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.pbx_Trash, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbx_Question3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,6 +85,7 @@ Partial Class Form1
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.lbl_Trash)
         Me.Panel1.Controls.Add(Me.lbl_Reset)
         Me.Panel1.Controls.Add(Me.pbx_Trash)
         Me.Panel1.Controls.Add(Me.lbl_Orange)
@@ -101,7 +103,7 @@ Partial Class Form1
         '
         Me.lbl_Reset.AutoSize = True
         Me.lbl_Reset.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Reset.Location = New System.Drawing.Point(520, 218)
+        Me.lbl_Reset.Location = New System.Drawing.Point(520, 214)
         Me.lbl_Reset.Name = "lbl_Reset"
         Me.lbl_Reset.Size = New System.Drawing.Size(60, 23)
         Me.lbl_Reset.TabIndex = 14
@@ -111,7 +113,7 @@ Partial Class Form1
         'pbx_Trash
         '
         Me.pbx_Trash.Image = CType(resources.GetObject("pbx_Trash.Image"), System.Drawing.Image)
-        Me.pbx_Trash.Location = New System.Drawing.Point(501, 242)
+        Me.pbx_Trash.Location = New System.Drawing.Point(501, 238)
         Me.pbx_Trash.Name = "pbx_Trash"
         Me.pbx_Trash.Size = New System.Drawing.Size(96, 120)
         Me.pbx_Trash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -180,6 +182,7 @@ Partial Class Form1
         '
         'pbx_Answer3
         '
+        Me.pbx_Answer3.AccessibleName = "dragonfruit"
         Me.pbx_Answer3.InitialImage = Nothing
         Me.pbx_Answer3.Location = New System.Drawing.Point(255, 401)
         Me.pbx_Answer3.Name = "pbx_Answer3"
@@ -187,9 +190,11 @@ Partial Class Form1
         Me.pbx_Answer3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbx_Answer3.TabIndex = 2
         Me.pbx_Answer3.TabStop = False
+        Me.pbx_Answer3.Tag = "dragonfruit"
         '
         'pbx_Answer1
         '
+        Me.pbx_Answer1.AccessibleName = "banana"
         Me.pbx_Answer1.InitialImage = Nothing
         Me.pbx_Answer1.Location = New System.Drawing.Point(23, 401)
         Me.pbx_Answer1.Name = "pbx_Answer1"
@@ -197,9 +202,11 @@ Partial Class Form1
         Me.pbx_Answer1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbx_Answer1.TabIndex = 1
         Me.pbx_Answer1.TabStop = False
+        Me.pbx_Answer1.Tag = "banana"
         '
         'pbx_Answer2
         '
+        Me.pbx_Answer2.AccessibleName = "orange"
         Me.pbx_Answer2.InitialImage = Nothing
         Me.pbx_Answer2.Location = New System.Drawing.Point(139, 401)
         Me.pbx_Answer2.Name = "pbx_Answer2"
@@ -207,6 +214,17 @@ Partial Class Form1
         Me.pbx_Answer2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbx_Answer2.TabIndex = 0
         Me.pbx_Answer2.TabStop = False
+        Me.pbx_Answer2.Tag = "orange"
+        '
+        'lbl_Trash
+        '
+        Me.lbl_Trash.AutoSize = True
+        Me.lbl_Trash.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Trash.Location = New System.Drawing.Point(525, 361)
+        Me.lbl_Trash.Name = "lbl_Trash"
+        Me.lbl_Trash.Size = New System.Drawing.Size(52, 23)
+        Me.lbl_Trash.TabIndex = 15
+        Me.lbl_Trash.Text = "Trash"
         '
         'Form1
         '
@@ -252,4 +270,5 @@ Partial Class Form1
     Friend WithEvents lbl_Banana As Label
     Friend WithEvents pbx_Trash As PictureBox
     Friend WithEvents lbl_Reset As Label
+    Friend WithEvents lbl_Trash As Label
 End Class
